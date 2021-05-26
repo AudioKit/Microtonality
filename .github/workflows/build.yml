@@ -6,29 +6,8 @@ env:
   XCODE_VER: 12.4
 
 jobs:
-  test:
-    strategy:
-      matrix:
-        xcode_version: ['12.4']
-    runs-on: macos-latest
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode_version }}.app
-    steps:
-      - name: Check out MicrotonalAudioKit
-        uses: actions/checkout@v2
-      - name: Build MicrotonalAudioKit
-        run: |
-          set -euo pipefail
-          swift package clean
-          swift build --sanitize="address"
-      - name: Run Tests (ASAN)
-        run: |
-          set -euo pipefail
-          xcodebuild -scheme MicrotonalAudioKit -enableAddressSanitizer YES test | xcpretty
-
   # Generate Wiki docs 
   docs:
-    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Check out MicrotonalAudioKit
