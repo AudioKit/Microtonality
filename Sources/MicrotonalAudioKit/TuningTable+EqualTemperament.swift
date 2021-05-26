@@ -1,5 +1,7 @@
 // Copyright AudioKit. All Rights Reserved. Revision History at http://github.com/AudioKit/AudioKit/
 
+import Foundation
+
 extension TuningTable {
     /// Default tuning table is 12ET.
     public func defaultTuning() -> Int {
