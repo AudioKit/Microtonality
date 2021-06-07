@@ -7,7 +7,7 @@ let package = Package(
     name: "MicrotonalAudioKit",
     platforms: [.macOS(.v10_14), .iOS(.v13), .tvOS(.v13)],
     products: [.library(name: "MicrotonalAudioKit", targets: ["MicrotonalAudioKit"])],
-    dependencies: [.package(url: "https://github.com/AudioKit/AudioKit", .branch("develop"))],
+    dependencies: [.package(url: "https://github.com/AudioKit/AudioKit", from: "5.2.0")],
     targets: [
         .target(name: "MicrotonalAudioKit", dependencies: ["AudioKit"]),
         .testTarget(name: "MicrotonalAudioKitTests", dependencies: ["MicrotonalAudioKit"])
