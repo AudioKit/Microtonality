@@ -221,7 +221,11 @@ public class TuningTable: TuningTableBase {
             let lp2 = pow(2, ttOctaveFactor)
 
             var f = tone * lp2 * middleCFrequency
-            f = (0 ... TuningTable.NYQUIST).clamp(f)
+            if f < 0 {
+                f = 0
+            } else if f > TuningTable.NYQUIST {
+                f = TuningTable.NYQUIST
+            }
             tableData[i] = Frequency(f)
 
             // UPDATE etNNPitchBend
