@@ -7,7 +7,7 @@ import Foundation
 
 /// helper object to simulate a Swift tuple for ObjC interoperability
 public class TuningTableETNN: NSObject {
-    /// MIDI Note Nubmer
+    /// MIDI Note Number
     public var nn: MIDINoteNumber = 60
     /// Pitch Bend
     public var pitchBend: Int = 16_384 / 2
