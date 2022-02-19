@@ -10,7 +10,7 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/AudioKitPro.svg?style=social)](https://twitter.com/AudioKitPro)
 
  </div>
- 
+
 These tuning tables were developed by Marcus Hobbs and used in the AudioKit Synth One iOS app.
 
 <img src="https://github.com/AudioKit/MicrotonalAudioKit/blob/develop/images/synthone.jpg" width="60%"/>
