@@ -13,7 +13,7 @@
 
 These tuning tables were developed by Marcus Hobbs and used in the AudioKit Synth One iOS app.
 
-<img src="https://github.com/AudioKit/MicrotonalAudioKit/blob/develop/images/synthone.jpg" width="60%"/>
+<img src="https://github.com/AudioKit/MicrotonalAudioKit/blob/main/images/synthone.jpg" width="60%"/>
 
 ## Installation in Xcode 13
 
