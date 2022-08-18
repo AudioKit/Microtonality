@@ -1,6 +1,6 @@
 <div align=center>
-<img src="https://github.com/AudioKit/Cookbook/raw/main/Cookbook/Cookbook/Assets.xcassets/audiokit-icon.imageset/audiokit-icon.png" width="20%"/>
-
+<img src="https://github.com/AudioKit/MicrotonalAudioKit/blob/main/images/synthone.jpg"/>
+ 
 # Microtonal Tuning Tables for AudioKit
 
 [![Build Status](https://github.com/AudioKit/MicrotonalAudioKit/workflows/CI/badge.svg)](https://github.com/AudioKit/MicrotonalAudioKit/actions?query=workflow%3ACI)
@@ -12,8 +12,6 @@
  </div>
 
 These tuning tables were developed by Marcus Hobbs and used in the AudioKit Synth One iOS app.
-
-<img src="https://github.com/AudioKit/MicrotonalAudioKit/blob/main/images/synthone.jpg" width="60%"/>
 
 ## Installation in Xcode 13
 
