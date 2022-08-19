@@ -10,7 +10,6 @@ let package = Package(
     dependencies: [.package(url: "https://github.com/AudioKit/AudioKit", from: "5.3.0")],
     targets: [
         .target(name: "MicrotonalAudioKit", dependencies: ["AudioKit"]),
-        .testTarget(name: "MicrotonalAudioKitTests", dependencies: ["MicrotonalAudioKit"])
+        .testTarget(name: "MicrotonalAudioKitTests", dependencies: ["MicrotonalAudioKit"]),
     ]
 )
-
