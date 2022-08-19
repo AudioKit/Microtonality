@@ -3,12 +3,13 @@
 import AudioKit
 import Foundation
 
-extension TuningTable {
+public extension TuningTable {
     /// Use a Scala file to write the tuning table. Returns notes per octave or nil when file couldn't be read.
-    public func scalaFile(_ filePath: String) -> Int? {
+    func scalaFile(_ filePath: String) -> Int? {
         guard
             let contentData = FileManager.default.contents(atPath: filePath),
-            let contentStr = String(data: contentData, encoding: .utf8) else {
+            let contentStr = String(data: contentData, encoding: .utf8)
+        else {
             Log("can't read filePath: \(filePath)")
             return nil
         }
@@ -44,7 +45,7 @@ extension TuningTable {
     }
 
     /// Get frequencies from a Scala string
-    public func frequencies(fromScalaString rawStr: String?) -> [Frequency] {
+    func frequencies(fromScalaString rawStr: String?) -> [Frequency] {
         guard let inputStr = rawStr else {
             return []
         }
@@ -101,7 +102,7 @@ extension TuningTable {
                 continue
             }
 
-            if parsedFirstNonCommentLine && !parsedAllFrequencies {
+            if parsedFirstNonCommentLine, !parsedAllFrequencies {
                 if let newFrequencyCount = Int(lineStr) {
                     frequencyCount = newFrequencyCount
                     if frequencyCount == 0 || frequencyCount > 127 {
@@ -126,7 +127,8 @@ extension TuningTable {
             let rangeOfFirstMatch = regex.rangeOfFirstMatch(
                 in: lineStr,
                 options: .anchored,
-                range: NSRange(location: 0, length: lineStr.count))
+                range: NSRange(location: 0, length: lineStr.count)
+            )
 
             if NSEqualRanges(rangeOfFirstMatch, NSRange(location: NSNotFound, length: 0)) == false {
                 let nsLineStr = lineStr as NSString?
@@ -137,7 +139,7 @@ extension TuningTable {
                         if scaleDegree != 0 {
                             scaleDegree = fabs(scaleDegree)
                             // convert from cents to frequency
-                            scaleDegree /= 1_200
+                            scaleDegree /= 1200
                             scaleDegree = pow(2, scaleDegree)
                             scalaFrequencies.append(scaleDegree)
                             actualFrequencyCount += 1

@@ -1,7 +1,6 @@
-    import XCTest
-    @testable import MicrotonalAudioKit
+@testable import MicrotonalAudioKit
+import XCTest
 
-    final class MicrotonalAudioKitTests: XCTestCase {
-        func testExample() {
-        }
-    }
+final class MicrotonalAudioKitTests: XCTestCase {
+    func testExample() {}
+}

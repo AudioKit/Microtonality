@@ -10,14 +10,14 @@ public class TuningTableETNN: NSObject {
     /// MIDI Note Number
     public var nn: MIDINoteNumber = 60
     /// Pitch Bend
-    public var pitchBend: Int = 16_384 / 2
+    public var pitchBend: Int = 16384 / 2
     /// Initial tuning table with note number and pitch Bend
     /// - Parameters:
     ///   - nn: Note Number
     ///   - pb: Pitch Bend
-    public init(_ nn: MIDINoteNumber = 60, _ pb: Int = 16_384 / 2) {
+    public init(_ nn: MIDINoteNumber = 60, _ pb: Int = 16384 / 2) {
         self.nn = nn
-        self.pitchBend = pb
+        pitchBend = pb
     }
 }
 
@@ -54,7 +54,6 @@ public class TuningTable: TuningTableBase {
     /// Frequency of standard reference note
     /// equivalent to noteToHz: return 440. * exp2((60 - 69)/12.)
     public var middleCFrequency: Frequency = 261.625_565_300_6 {
-
         didSet {
             updateTuningTableFromMasterSet()
         }
@@ -88,7 +87,7 @@ public class TuningTable: TuningTableBase {
         }
     }
 
-    internal let pitchBendHigh: Double = 16_383
+    internal let pitchBendHigh: Double = 16383
 
     internal var etNNDictionary = [MIDINoteNumber: TuningTableETNN]()
 
@@ -191,7 +190,7 @@ public class TuningTable: TuningTableBase {
 
         // Scale by cents => Frequency space
         for (index, cent) in centsArray.enumerated() {
-            let centF = exp2(cent / 1_200)
+            let centF = exp2(cent / 1200)
             masterSetProcessed[index] = masterSetProcessed[index] * centF
         }
         masterSet = masterSetProcessed
@@ -255,7 +254,7 @@ public class TuningTable: TuningTableBase {
 
     /// Renders and returns the masterSet values as an array of cents
     public func masterSetInCents() -> [Cents] {
-        let cents = masterSet.map { log2($0) * 1_200 }
+        let cents = masterSet.map { log2($0) * 1200 }
         return cents
     }
 }

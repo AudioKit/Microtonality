@@ -1,6 +1,6 @@
 // Copyright AudioKit. All Rights Reserved. Revision History at http://github.com/AudioKit/AudioKit/
 
-extension TuningTable {
+public extension TuningTable {
     // swiftlint:disable variable_name
 
     /// Create a hexany from 4 frequencies (4 choose 2)
@@ -12,7 +12,7 @@ extension TuningTable {
     ///   - C: Third of the master set of frequencies
     ///   - D: Fourth of the master set of frequencies
     ///
-    @discardableResult public func hexany(_ A: Frequency, _ B: Frequency, _ C: Frequency, _ D: Frequency) -> Int {
+    @discardableResult func hexany(_ A: Frequency, _ B: Frequency, _ C: Frequency, _ D: Frequency) -> Int {
         tuningTable(fromFrequencies: [A * B, A * C, A * D, B * C, B * D, C * D])
         return 6
     }
@@ -25,10 +25,11 @@ extension TuningTable {
     ///   - C: Third of the master set of frequencies
     ///   - D: Fourth of the master set of frequencies
     ///
-    @discardableResult public func majorTetrany(_ A: Frequency,
-                                                _ B: Frequency,
-                                                _ C: Frequency,
-                                                _ D: Frequency) -> Int {
+    @discardableResult func majorTetrany(_ A: Frequency,
+                                         _ B: Frequency,
+                                         _ C: Frequency,
+                                         _ D: Frequency) -> Int
+    {
         tuningTable(fromFrequencies: [A, B, C, D])
         return 4
     }
@@ -41,10 +42,11 @@ extension TuningTable {
     ///   - C: Third of the master set of frequencies
     ///   - D: Fourth of the master set of frequencies
     ///
-    @discardableResult public func minorTetrany(_ A: Frequency,
-                                                _ B: Frequency,
-                                                _ C: Frequency,
-                                                _ D: Frequency) -> Int {
+    @discardableResult func minorTetrany(_ A: Frequency,
+                                         _ B: Frequency,
+                                         _ C: Frequency,
+                                         _ D: Frequency) -> Int
+    {
         tuningTable(fromFrequencies: [A * B * C, A * B * D, A * C * D, B * C * D])
         return 4
     }

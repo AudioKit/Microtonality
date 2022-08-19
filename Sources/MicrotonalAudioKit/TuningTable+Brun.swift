@@ -6,9 +6,9 @@ extension TuningTable {
     // Viggo Brun algorithm
     // return (numerator, denominator) approximation to generator after level iterations
     fileprivate static func brunLevel_0_1_1_0(level l: Int, generator g: Double) -> (numerator: Int, denominator: Int) {
-        var zn: Int = 0, zd: Int = 1, infn: Int = 1, infd: Int = 0, fn: Int = 0, fd: Int = 0
+        var zn = 0, zd = 1, infn = 1, infd = 0, fn = 0, fd = 0
 
-        for _ in 0..<l {
+        for _ in 0 ..< l {
             fn = zn + infn
             fd = zd + infd
             if g > Double(fn) / Double(fd) {
@@ -32,7 +32,8 @@ extension TuningTable {
     ///
     public func momentOfSymmetry(generator gInput: Double = 7.0 / 12.0,
                                  level lInput: Int = 5,
-                                 murchana mInput: Int = 0) -> Int {
+                                 murchana mInput: Int = 0) -> Int
+    {
         // CLAMP
         let g = (gInput > 1.0) ? 1.0 : ((gInput < 0) ? 0.0 : gInput)
         let l = (lInput > 7) ? 7 : ((lInput < 0) ? 0 : lInput)
@@ -41,7 +42,7 @@ extension TuningTable {
         // NPO number of notes per octave
         let den = d.denominator
         var f = [Frequency]()
-        for i in 0..<den {
+        for i in 0 ..< den {
             let p = exp2((Double(i) * g).truncatingRemainder(dividingBy: 1.0))
             f.append(Frequency(p))
         }
