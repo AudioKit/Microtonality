@@ -1,6 +1,17 @@
-# GitHub Actions for Microtonality: includes builds, tests and releases
 name: CI
 
-on: [push, pull_request]
-env:
-  XCODE_VER: latest-stable
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: macos-12
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: swift build -v
