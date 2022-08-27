@@ -1,4 +1,4 @@
-# GitHub Actions for MicrotonalAudioKit: includes builds, tests and releases
+# GitHub Actions for Microtonality: includes builds, tests and releases
 name: CI
 
 on: [push, pull_request]
@@ -10,13 +10,13 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out MicrotonalAudioKit
+      - name: Check out Microtonality
         uses: actions/checkout@v2
       - name: Generate Documentation
         uses: SwiftDocOrg/swift-doc@master
         with:
           inputs: "Sources"
-          module-name: MicrotonalAudioKit
+          module-name: Microtonality
           output: "Documentation"
       - name: Upload Documentation to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1

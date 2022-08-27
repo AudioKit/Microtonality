@@ -1,7 +1,8 @@
 // Copyright AudioKit. All Rights Reserved. Revision History at http://github.com/AudioKit/AudioKit/
 
-import AudioKit
 import Foundation
+
+public typealias MIDINoteNumber = UInt8
 
 // TODO: unit tests
 
@@ -126,7 +127,7 @@ public class TuningTable: TuningTableBase {
     ///
     @discardableResult public func tuningTable(fromFrequencies inputMasterSet: [Frequency]) -> Int {
         if inputMasterSet.isEmpty {
-            Log("No input frequencies")
+            print("No input frequencies")
             return 0
         }
 
@@ -150,7 +151,7 @@ public class TuningTable: TuningTableBase {
         }
 
         if !frequenciesAreValid {
-            Log("Invalid input frequencies")
+            print("Invalid input frequencies")
             return 0
         }
 
@@ -172,7 +173,7 @@ public class TuningTable: TuningTableBase {
     public func tuning12ETDeviation(centsArray: [Cents]) {
         // Cents array count must equal 12
         guard centsArray.count == 12 else {
-            Log("user error: centsArray must have 12 elements")
+            print("user error: centsArray must have 12 elements")
             return
         }
 
@@ -181,7 +182,7 @@ public class TuningTable: TuningTableBase {
 
         // This should never happen
         guard masterSet.count == 12 else {
-            Log("internal error: 12 et must have 12 tones")
+            print("internal error: 12 et must have 12 tones")
             return
         }
 
@@ -249,7 +250,7 @@ public class TuningTable: TuningTableBase {
                 }
             }
         }
-        // Log("etnn dictionary:\(etNNDictionary)")
+        // print("etnn dictionary:\(etNNDictionary)")
     }
 
     /// Renders and returns the masterSet values as an array of cents

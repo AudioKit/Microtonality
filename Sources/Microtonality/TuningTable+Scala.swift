@@ -1,6 +1,5 @@
 // Copyright AudioKit. All Rights Reserved. Revision History at http://github.com/AudioKit/AudioKit/
 
-import AudioKit
 import Foundation
 
 public extension TuningTable {
@@ -10,7 +9,7 @@ public extension TuningTable {
             let contentData = FileManager.default.contents(atPath: filePath),
             let contentStr = String(data: contentData, encoding: .utf8)
         else {
-            Log("can't read filePath: \(filePath)")
+            print("can't read filePath: \(filePath)")
             return nil
         }
 
@@ -31,7 +30,7 @@ public extension TuningTable {
             try regex = NSRegularExpression(pattern: leadingTrailingWhiteSpacesPattern,
                                             options: .caseInsensitive)
         } catch let error as NSError {
-            Log("ERROR: create regex: \(error)")
+            print("ERROR: create regex: \(error)")
             return nil
         }
 
@@ -70,7 +69,7 @@ public extension TuningTable {
             regex = try NSRegularExpression(pattern: regexStr,
                                             options: .caseInsensitive)
         } catch let error as NSError {
-            Log("ERROR: cannot parse scala file: \(error)")
+            print("ERROR: cannot parse scala file: \(error)")
             return scalaFrequencies
         }
 
@@ -107,7 +106,7 @@ public extension TuningTable {
                     frequencyCount = newFrequencyCount
                     if frequencyCount == 0 || frequencyCount > 127 {
                         // #warning SPEC SAYS 0 notes is okay because 1/1 is implicit
-                        Log("ERROR: number of notes in scala file: \(frequencyCount)")
+                        print("ERROR: number of notes in scala file: \(frequencyCount)")
                         parsedScala = false
                         break
                     } else {
@@ -118,7 +117,7 @@ public extension TuningTable {
             }
 
             if actualFrequencyCount > frequencyCount {
-                Log("actual frequency cont: \(actualFrequencyCount) > frequency count: \(frequencyCount)")
+                print("actual frequency cont: \(actualFrequencyCount) > frequency count: \(frequencyCount)")
             }
 
             /* The first note of 1/1 or 0.0 cents is implicit and not in the files.*/
@@ -149,7 +148,7 @@ public extension TuningTable {
                 } else {
                     if substringForFirstMatch.range(of: "/").length != 0 {
                         if substringForFirstMatch.range(of: "-").length != 0 {
-                            Log("ERROR: invalid ratio: \(substringForFirstMatch)")
+                            print("ERROR: invalid ratio: \(substringForFirstMatch)")
                             parsedScala = false
                             break
                         }
@@ -160,7 +159,7 @@ public extension TuningTable {
                         let denominatorStr = substringForFirstMatch.substring(from: slashPos.location + 1)
                         let denominator = Int(denominatorStr) ?? 0
                         if denominator == 0 {
-                            Log("ERROR: invalid ratio: \(substringForFirstMatch)")
+                            print("ERROR: invalid ratio: \(substringForFirstMatch)")
                             parsedScala = false
                             break
                         } else {
@@ -178,7 +177,7 @@ public extension TuningTable {
                         // a whole number, treated as a rational with a denominator of 1
                         if let whole = Int(substringForFirstMatch as String) {
                             if whole <= 0 {
-                                Log("ERROR: invalid ratio: \(substringForFirstMatch)")
+                                print("ERROR: invalid ratio: \(substringForFirstMatch)")
                                 parsedScala = false
                                 break
                             } else if whole == 1 || whole == 2 {
@@ -193,17 +192,17 @@ public extension TuningTable {
                     }
                 }
             } else {
-                Log("ERROR: error parsing: \(lineStr)")
+                print("ERROR: error parsing: \(lineStr)")
                 continue
             }
         }
 
         if !parsedScala {
-            Log("FATAL ERROR: cannot parse Scala file")
+            print("FATAL ERROR: cannot parse Scala file")
             return []
         }
 
-        Log("frequencies: \(scalaFrequencies)")
+        print("frequencies: \(scalaFrequencies)")
         return scalaFrequencies
     }
 }

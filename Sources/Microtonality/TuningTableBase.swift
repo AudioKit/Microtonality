@@ -1,6 +1,5 @@
 // Copyright AudioKit. All Rights Reserved. Revision History at http://github.com/AudioKit/AudioKit/
 
-import AudioKit
 import Foundation
 
 /// TuningTableBase provides low-level methods for creating
@@ -26,7 +25,7 @@ open class TuningTableBase: NSObject {
     public typealias Cents = Double
 
     /// Standard Nyquist frequency
-    public static let NYQUIST: Frequency = Settings.sampleRate / 2
+    public static let NYQUIST: Frequency = 22050 // sampleRate / 2
 
     /// Total number of MIDI Notes available to play
     public static let midiNoteCount = 128

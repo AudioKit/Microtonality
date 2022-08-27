@@ -4,12 +4,10 @@
 import PackageDescription
 
 let package = Package(
-    name: "MicrotonalAudioKit",
-    platforms: [.macOS(.v10_13), .iOS(.v11), .tvOS(.v11)],
-    products: [.library(name: "MicrotonalAudioKit", targets: ["MicrotonalAudioKit"])],
-    dependencies: [.package(url: "https://github.com/AudioKit/AudioKit", from: "5.3.0")],
+    name: "Microtonality",
+    products: [.library(name: "Microtonality", targets: ["Microtonality"])],
     targets: [
-        .target(name: "MicrotonalAudioKit", dependencies: ["AudioKit"]),
-        .testTarget(name: "MicrotonalAudioKitTests", dependencies: ["MicrotonalAudioKit"]),
+        .target(name: "Microtonality"),
+        .testTarget(name: "MicrotonalityTests", dependencies: ["Microtonality"]),
     ]
 )
