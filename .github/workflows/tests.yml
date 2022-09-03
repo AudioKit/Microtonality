@@ -1,0 +1,18 @@
+name: Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  swift_test:
+    name: Test
+    uses: AudioKit/ci/.github/workflows/swift_test.yml@main
+    with:
+      scheme: Microtonality
+      platforms: iOS macOS tvOS watchOS Linux
+      swift-versions: 5.3 5.4 5.5 5.6
+
