@@ -1,6 +1,5 @@
 <div align=center>
-<img src="https://github.com/AudioKit/Microtonality/blob/main/images/synthone.jpg"/>
- 
+
 # Microtonality
 
 [![Build Status](https://github.com/AudioKit/Microtonality/workflows/CI/badge.svg)](https://github.com/AudioKit/Microtonality/actions?query=workflow%3ACI)
@@ -8,6 +7,8 @@
     [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 [![Twitter Follow](https://img.shields.io/twitter/follow/AudioKitPro.svg?style=social)](https://twitter.com/AudioKitPro)
 
+https://user-images.githubusercontent.com/13122/188533099-b09ced85-089c-4a86-8313-46c7d97819c9.mov
+ 
  </div>
 
 Tuning tables developed by Marcus Hobbs and used in the AudioKit Synth One iOS app.
